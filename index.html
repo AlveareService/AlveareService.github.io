@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alveare</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .tab-container { width: 100%; max-width: 600px; margin: 0 auto; }
+        .tabs { display: flex; }
+        .tab-button {
+            flex: 1;
+            padding: 15px; /* Button padding */
+            font-size: 16px; /* Font size for buttons */
+            border: none;
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+        .tab-button:hover { background-color: #ddd; }
+        .tab-button.active { background-color: #ccc; }
+        .tab-content {
+            display: none;
+            padding: 40px; /* Padding for content */
+            border: 1px solid #ccc;
+            border-top: none;
+            max-height: 4000px; /* Extremely high max height */
+            overflow-y: auto; /* Enable scrolling */
+        }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="tab-container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'Tab1')">Information</button>
+            <button class="tab-button" onclick="openTab(event, 'Tab2')">Rule</button>
+            <button class="tab-button" onclick="openTab(event, 'Tab3')">Chat</button>
+        </div>
+
+        <div id="Tab1" class="tab-content active">
+            <h2>ALVEARE</h2>
+            <p>Alveare service</p>
+            <img src="Alveare.jpg.png" alt="Description of Image" style="max-width: 100%; height: auto;">
+            <p>Since.2020      </p>
+            <p>Started in the pandemic, our service gathered a crew of capable people to complete the tasks our customers requested.</p>
+            <p>Here's the list of the service we can provide:</p>
+            <p>Lending Money</p>
+            <p>Virus Transfer(Target email needed)</p>
+            <p>Password Phish(Target email needed)</p>
+            <p>Black Mailing(Target email needed)</p>
+            <p>Spamming Attack(Target number/email needed)</p>
+            <p>Premium Accounts(Grammarly premium, Netflix premium, Chat GPT 4.0, more...)</p>
+            <p>Target EXPEL OPERATION(Name/School needed)</p>
+            <p>*To request a service please contact: alveareservice@gmail.com*</p>
+            <p>To apply for our crew, also contact the above</p>
+            <p>*We take no responsibility for any service above*</p>
+        </div>
+        
+        <div id="Tab2" class="tab-content">
+            <h2>Rules</h2>
+            <p>1.We hold no reponsibility for the outcome of any services</p>
+            <p>2.We will not abuse the data of our customers</p>
+            <p>3.If any amount of money is not payed back in set time, it will double</p>
+            <p>4.We cannot promise the stability of the premium accounts as some are phished</p>
+            <p>5.If you leak our data of any form, you will face consequences</p>
+            <p>*IF ANY OF THE RULES ABOVE ARE BROKEN, WE CANNOT PROMISE THAT WE WILL AGREE TO RULE NO.2</p>
+        </div>
+        
+        <div id="Tab3" class="tab-content">
+            <h2>Crew Chat System</h2>
+            
+            <!-- Chat Container -->
+<div class="chat-container" id="chatContainer"></div>
+<div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+    function sendMessage() {
+        var input = document.getElementById("chatInput");
+        var message = input.value;
+
+        if (message.trim() !== "") {
+            var chatContainer = document.getElementById("chatContainer");
+            var newMessage = document.createElement("div");
+            newMessage.textContent = message;
+            chatContainer.appendChild(newMessage);
+            input.value = ""; // Clear input
+            chatContainer.scrollTop = chatContainer.scrollHeight; // Auto-scroll to bottom
+        }
+    }
+</script>
+
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
